@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGITE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toolbar">
+        <div class="dropdown" id="logicgates">
+            <button class="dropbtn" onclick="toggleDropdown('logicgates')">LOGIC GATES</button>
+            <div class="dropdown-content" >
+              <button id="andGate">AND</button>
+              <button id="orGate">OR</button>
+              <button id="notGate">NOT</button>
+              <button id="norGate">NOR</button>
+              <button id="nandGate">NAND</button>
+              <button id="xorGate">EXOR</button>
+            </div>
+          </div>
+           
+        <div class="dropdown" id="terminalDropdown">
+          <button class="dropbtn">TERMINALS</button>
+          <div class="dropdown-content">
+              <button id="inputSwitchButton">INPUT SWITCH</button>
+              <button id="outputTerminalButton">OUTPUT TERMINAL</button>
+          </div>
+      </div>
+        <script>
+          function toggleDropdown(dropdownId) {
+            var dropdownContent = document.getElementById(dropdownId).querySelector('.dropdown-content');
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+          }
+        </script>
+
+        <button id="undoButton">UNDO</button>
+        <button id="clearButton">NEW GRID</button>
+        <button id="deleteButton">DELETE</button>
+        <button id="saveCircuitButton">SAVE CIRCUIT</button>
+        <button id="loadCircuitButton">LOAD CIRCUIT</button>
+        
+        
+    </div>
+
+
+    <div class="sandbox">
+        
+        <div class="grid-container" id="grid-container">
+            
+        </div>
+        <svg id="flowline-svg" style="position: absolute; top: 0; left: 0; z-index: 10; width: 100%; height: 100%; pointer-events: none;"></svg>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script src="grid.js"></script>
+    <script src="gates.js"></script>
+    <script src="controls.js"></script> -->
+    <script>
+      document.getElementById("login-form").addEventListener("submit", async function(event) {
+          event.preventDefault();
+      
+          const email = document.querySelector('input[name="email"]').value;
+          const password = document.querySelector('input[name="password"]').value;
+      
+          const response = await fetch("http://localhost:3000/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password })
+          });
+      
+          const result = await response.json();
+          alert(result.message);
+      
+          if (response.ok) {
+              window.location.href = "dashboard.html"; // Redirect after login
+          }
+      });
+      </script>
+</body>
+</html>

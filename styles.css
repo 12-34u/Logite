@@ -1,0 +1,272 @@
+
+body {
+    margin: 0;
+    font-family: 'Calibri', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f7f9;
+}
+
+
+.toolbar {
+    width: 220px;
+    height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(to right, #151342, #4f4c8b);
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+    position: fixed; /* Keeps it in place */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Allows scrolling inside the toolbar if needed */
+}
+
+.toolbar button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toolbar button:hover {
+    background-color: #aa0000;
+    transform: scale(1.05);
+}
+
+.toolbar button:active {
+    transform: scale(0.98);
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(179, 242, 242);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 1px;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transition-delay: 0.5s; 
+    transform: scaleY(1);
+}
+
+.dropdown-content button {
+    padding: 10px;
+    margin: 6px 0;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content button:hover {
+    background-color: #e0e0e0;
+}
+
+
+.sandbox {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(15, 65px);
+    grid-template-rows: repeat(15, 65px);
+    gap: 0px;
+    border: 2px solid #8cb5de;
+    background-color: #e0e4e7;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+    
+    margin-left: 230px; /* Push it to the right */
+}
+
+.grid-cell {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #217cf4;
+    background-color: #d1d1d1;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    z-index: 1;
+}
+
+.grid-cell:hover {
+    background-color: #add8e6;
+    border-color: #ffcc00;
+}
+
+
+.gate-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.gate-point:hover {
+    background-color: #ffcc00;
+}
+
+.input-point {
+    
+    width: 20px; 
+    height: 20px; 
+    background-color: #007BFF; 
+    border-radius: 50%; 
+    position: relative; 
+    cursor: pointer; 
+}
+
+.input-point1 {
+    background-color: red;
+    top: 25%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.input-point2 {
+    background-color: red;
+    top: 75%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.output-point {
+    background-color: green;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.connection-line {
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+#flowline-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+#deleteButton {
+    background-color: #3498db; 
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#deleteButton:hover {
+    background-color: #aa0000; 
+    transform: scale(1.05);
+}
+
+#deleteButton.active {
+    background-color: #aa0000; 
+}
+
+
+#undoButton, #clearButton, #inputSwitchButton, #outputTerminalButton {
+    background-color: #3498db;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#undoButton:hover, #clearButton:hover, #inputSwitchButton:hover, #outputTerminalButton:hover {
+    background-color: #aa0000;
+    transform: scale(1.05);
+}
+
+#undoButton:active, #clearButton:active, #inputSwitchButton:active, #outputTerminalButton:active {
+    transform: scale(0.98);
+    background-color: #aa0000
+}
+
+
+.grid-cell.active {
+    background-color: #add8e6;
+}
+
+.grid-cell.has-image {
+   
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#logicgates .dropdown-content button {
+    padding: 10px;
+    margin: 6px 0;
+    background-color:#3498db; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logicgates .dropdown-content button:hover {
+    background-color: #aa0000; 
+}
+
+#saveCircuitButton,
+#loadCircuitButton {
+    background-color: #3498db;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#saveCircuitButton:hover,
+#loadCircuitButton:hover {
+    background-color: #aa0000;
+    transform: scale(1.05);
+}

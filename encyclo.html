@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gates Encyclopedia</title>
+    <link rel="stylesheet" href="encyclo_styles.css">
+    <script>
+        function toggleDropdown(id) {
+            var content = document.getElementById(id);
+            content.classList.toggle("active");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Logic Gates Encyclopedia</h1>
+        <a href="web.html" class="back-btn">&larr; Back to Home</a>
+    </header>
+
+    <main>
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('half-adder')">Half Adder</button>
+            <div class="dropdown-content" id="half-adder">
+                <p>There are two ways to build a half adder circuit.</p>
+                <p>(1) Using BASIC gates</p>
+                <img src="images/basic_half.png" alt="Half Adder">
+                <p>(2) Using EXOR gates</p>
+                <img src="images/xor_half.png" alt="Half Adder">
+                <p><br>A Half Adder is a basic digital circuit that performs the addition of two binary 
+                    digits, A and B, without considering any carry input. It produces two outputs: Sum 
+                    (S) and Carry (C). The sum output is obtained using the XOR operation (S = A ⊕ B), while 
+                    the carry output is generated using the AND operation (C = A ⋅ B). Since a half adder does not 
+                    take a carry-in, it cannot be used for multi-bit addition on its own, but it serves as a 
+                    fundamental building block for a full adder. Half adders are widely used in simple arithmetic 
+                    circuits and digital systems requiring basic addition operations.
+                    <br><br>
+                    When A and B change, the half adder updates its outputs accordingly. If both inputs are 
+                    different, the sum is HIGH, and the carry remains LOW. However, if both inputs are HIGH, the sum 
+                    becomes LOW, and the carry output becomes HIGH, indicating an overflow to the next bit in 
+                    multi-bit addition.</p><br><hr><br>
+                    <div class="video-wrapper">
+                        <iframe 
+                          src="https://www.youtube.com/embed/aLUY-s7LSns" 
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      <p><b><i>Youtube Channel: Neso Academy</i></b></p>
+            </div>
+
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('full-adder')">Full Adder</button>
+            <div class="dropdown-content" id="full-adder">
+                <img src="images/xor_full.png" alt="Full Adder">
+                <p><br>A Full Adder is a digital circuit that performs the addition of three binary inputs: 
+                    two significant bits (A and B) and a carry-in (Cin) from a previous addition. It produces two outputs: 
+                    Sum (S) and Carry-out (Cout). The sum output is determined by the XOR operation of the three inputs, while 
+                    the carry-out is generated when at least two of the inputs are HIGH. A full adder can be built 
+                    using two half adders and an OR gate, making it a fundamental component in binary arithmetic and
+                     multi-bit addition. It is commonly used in ALUs (Arithmetic Logic Units), microprocessors, and 
+                     digital circuits to perform binary addition.
+                    <br><br>
+                    When A, B, and Cin change, the full adder updates its outputs accordingly. If an even number 
+                    of inputs are HIGH, the sum is LOW; otherwise, it is HIGH. The carry-out is HIGH only when at 
+                    least two of the three inputs are HIGH, ensuring proper addition in multi-bit operations.</p><br><hr><br>
+                    <div class="video-wrapper">
+                        <iframe 
+                          src="https://www.youtube.com/embed/RK3P9L2ZXk4" 
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      <p><b><i>Youtube Channel: Neso Academy</i></b></p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('gates')">Logic Gates</button>
+            <div class="dropdown-content" id="gates">
+                <div class="video-wrapper">
+                    <iframe 
+                      src="https://www.youtube.com/embed/INEtYZqtjTo" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  <p><b><i>Youtube Channel: Neso Academy</i></b></p><br><hr><br>
+                <div class="dropdown">
+                    <button class="dropdown-btn" onclick="toggleDropdown('basic')">Basic Gates</button>
+                    <div class="dropdown-content" id="basic">
+                        <button class="dropdown-btn" onclick="toggleDropdown('and')">AND Gate</button>
+                        <div class="dropdown-content" id="and">
+                            <img src="images/and.png" alt="AND Gate">
+                            <p>The AND gate outputs high only if all inputs are high.</p>
+                        
+
+</div><p></p>
+                        <button class="dropdown-btn" onclick="toggleDropdown('or')">OR Gate</button>
+                        <div class="dropdown-content" id="or">
+                            <img src="images/or.png" alt="OR Gate">
+                            <p>The OR gate outputs high if at least one input is high.</p>
+                        
+
+</div><p></p>
+                        <button class="dropdown-btn" onclick="toggleDropdown('not')">NOT Gate</button>
+                        <div class="dropdown-content" id="not">
+                            <img src="images/not.png" alt="NOT Gate">
+                            <p>The NOT gate inverts the input signal.</p>
+                        
+
+</div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-btn" onclick="toggleDropdown('universal')">Universal Gates</button>
+                    <div class="dropdown-content" id="universal">
+                        <p>A Universal Gate is a logic gate that can be used to implement any Boolean function without
+                             requiring other types of gates. NAND and NOR gates are the two universal gates, as they can 
+                             be combined to create basic logic gates like AND, OR, and NOT. Due to their versatility,
+                              universal gates are widely used in digital circuits, minimization of hardware, and 
+                              simplified circuit design.</p>
+                        <button class="dropdown-btn" onclick="toggleDropdown('nand')">NAND Gate</button>
+                        <div class="dropdown-content" id="nand">
+                            <img src="images/nand.png" alt="NAND Gate">
+                            <p>The NAND gate is a universal gate that can implement any logic circuit.</p>
+                        
+
+</div><p></p>
+                        <button class="dropdown-btn" onclick="toggleDropdown('nor')">NOR Gate</button>
+                        <div class="dropdown-content" id="nor">
+                            <img src="images/nor.png" alt="NOR Gate">
+                            <p>The NOR gate is another universal gate used for logic circuit design.</p>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('multiplexer')">Multiplexer</button>
+            <div class="dropdown-content" id="multiplexer">
+                <img src="images/mux.png" alt="Multiplexer">
+                <p><br>A Multiplexer (MUX) is a digital circuit that selects one of several input signals and forwards it to a 
+                    single output line based on control signals. It acts as a data selector, allowing multiple inputs to share 
+                    a single communication line. A MUX has multiple inputs (2^n for n selection inputs), one output, and control
+                     inputs that determine which input is routed to the output. For example, a 4-to-1 multiplexer has four inputs,
+                      one output, and two selection lines to choose the active input. Multiplexers are widely used in data transmission,
+                       signal routing, and memory access where multiple data sources need to be managed efficiently.
+                    <br><br>
+                    When the selection inputs change, the MUX switches the output to the corresponding input. If the 
+                    selected input is HIGH, the output is HIGH; if it is LOW, the output is LOW. This allows seamless data 
+                    transmission from multiple sources to a single destination, optimizing circuit complexity and resource
+                     utilization.</p><br><hr><br>
+                     <div class="video-wrapper">
+                        <iframe 
+                          src="https://www.youtube.com/embed/FKvnmxte98A" 
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                      </div>
+                      <p><b><i>Youtube Channel: Neso Academy</i></b></p>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown('demultiplexer')">Demultiplexer</button>
+            <div class="dropdown-content" id="demultiplexer">
+                <img src="images/demux.png" alt="Demultiplexer">
+                <p><br>A Demultiplexer (DEMUX) is a digital circuit that takes a single input signal and routes it to one of 
+                    several output lines based on control signals. It acts as the reverse of a multiplexer, distributing 
+                    data from one source to multiple destinations. A DEMUX has one data input, multiple output lines (2^n 
+                    for n selection inputs), and control inputs that determine which output line will receive the input signal.
+                     For example, a 1-to-4 demultiplexer has one input, four outputs, and two selection lines to decide the active 
+                     output. DEMUX is widely used in data distribution, memory decoding, and communication systems, where a single 
+                     data source needs to be directed to different locations.
+                    <br><br>
+                    When the selection inputs change, the DEMUX routes the input signal 
+                    to the corresponding output line while keeping others inactive. If the input is HIGH, only the 
+                    selected output is HIGH; otherwise, all outputs remain LOW.
+                </p><br><hr>
+                <div class="video-wrapper">
+                    <iframe 
+                      src="https://www.youtube.com/embed/t3Ed13z9uz8" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  <p><b><i>Youtube Channel: Neso Academy</i></b></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

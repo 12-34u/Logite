@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logite Homepage</title>
+  <style>
+    body {
+      font-family: 'Calibri',sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(179, 242, 242);
+      color: #000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     
+    }
+    .header {
+      background-color: #151342; 
+      color: #ccc;
+      padding: 30px;
+      border-bottom: 5px solid #ccc; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      font-size: 25px;
+      align-items: center;
+      padding: 40px;
+      flex-grow: 1;
+      
+      text-align: center;
+    }
+    .button-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.button {
+    background-color: #00aaff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(1px);
+    transition: background-color 0.3s, transform 0.2s;
+    width: 200px; 
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #0077cc; 
+    transform: scale(1.05) translateY(-2px); 
+}
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      clear: both;
+      border-top: 5px solid #ccc;
+    }
+
+    
+    body.dark-mode {
+      background-color: #141414; 
+      color: #fff;
+    }
+    body.dark-mode .header {
+      background-color: #e62e0f; 
+    }
+    body.dark-mode .header h1 {
+      color: #fff;
+    }
+    body.dark-mode .main {
+      background-color: #141414; 
+    }
+    body.dark-mode .button {
+      background-color:#e62e0f ; 
+      color: #fff;
+    }
+    body.dark-mode .button:hover {
+      background-color: #f40612; 
+    }
+    body.dark-mode .footer {
+      background-color: #222; 
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #aea9aa;
+      transition: 0.4s;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+    }
+    .toggle-switch input:checked + .slider {
+      background-color: #0077cc;
+    }
+    .toggle-switch input:focus + .slider {
+      box-shadow: 0 0 1px #e50914;
+    }
+    .toggle-switch input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    .slider.round {
+      border-radius: 34px;
+    }
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Logite Digital Logic Simulator</h1>
+    <div class="mode-switch">
+      <label class="toggle-switch">
+        <input type="checkbox" id="mode-switch-checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <div class="main">
+    <h2>Welcome to the Credentials Page</h2>
+    
+    <div class="button-container">
+      <button class="button" onclick="location.href='login.html'">LOGIN</button>
+      <button class="button" onclick="location.href='signup.html'">SIGNUP</button>
+      <button class="button" onclick="location.href='mini_project.html'">GUEST</button>
+    </div>
+  </div>
+  <p id="message"></p>
+
+
+
+  <div class="footer">
+    <p>&copy; 2024 Digital Logic Simulator</p>
+  </div>
+
+  <script>
+    
+    const modeSwitchCheckbox = document.querySelector('#mode-switch-checkbox');
+    const darkModeEnabled = localStorage.getItem('dark-mode') === 'true';
+
+    
+    if (darkModeEnabled) {
+      document.body.classList.add('dark-mode');
+      modeSwitchCheckbox.checked = true;
+    }
+
+   
+    modeSwitchCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('dark-mode', 'true');
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('dark-mode', 'false');
+      }
+    });
+  </script>
+</body>
+</html>
